@@ -1,0 +1,80 @@
+[
+  {
+    "content": [
+      "Welcome to Panel Master.",
+      "To create a new panel, go to File > New Panel and select the cabinet template you want (.mwt)."
+    ]
+  },
+  {
+    "label": "WORKSPACE SECTION",
+    "content": [
+      "This is the workspace, where you'll design and modify the cabinet layout.",
+      "On the left, you have the TreeView, which displays the available base surfaces where components can be placed.",
+      "In the center is the canvas, where components and other elements are placed.",
+      "On the right is the Inspector, where component properties are displayed."
+    ]
+  },
+  {
+    "label": "COMPONENTS SECTION",
+    "content": [
+      "In the Components tab on the right panel, you'll find the different components grouped by category. To insert one, click and drag it onto the desired surface.",
+      "In the Surface Tree tab on the left panel, you can view the entire component tree as you add components.",
+      "You can also insert components as children of other components by dragging them onto the desired component. Children move and rotate along with their parents."
+    ]
+  },
+  {
+    "label": "ANCHORS SECTION",
+    "content": [
+      "The lines you see on screen are called anchors. They are used to align components, set precise measurements, and add extensible elements such as wire ducts and rails.",
+      "In the AnchorList tab on the left panel, you can view all the anchors on the current surface.",
+      "To create new anchors, hold down the O key and drag the anchor you want to move."
+    ]
+  },
+  {
+    "label": "EXTENSIBLES SECTION",
+    "content": [
+      "To add extensible elements, go to the Extensibles tab on the right panel, where you'll find the available extensible elements. These elements are placed along anchors.",
+      "To add one, select the desired element and draw a line on the canvas following the anchors you want to use.",
+      "If there are no nearby anchors and you enable the \"Create Anchors\" option, anchors will be created automatically.",
+      "If you draw a rectangle instead of a line, you'll create a frame for the selected extensible element."
+    ]
+  },
+  {
+    "label": "CREATING THE CABINET SECTION",
+    "content": [
+      "Now let's finish this layout. I'll add a rail in the center and place a couple of components on it.",
+      "By selecting the rail's anchor and the top and bottom anchors of the frame, I can right-click the rail's anchor and select Set as Center to constrain it to the exact center.",
+      "I can now use the Val parameter in the Anchor section of the Inspector tab to define the exact offset from the frame's edges."
+    ]
+  },
+  {
+    "label": "DOOR SECTION",
+    "content": [
+      "Now let's move on to the door. I'll add three indicator lights and two buttons.",
+      "To align them precisely, I'll add a center anchor by selecting the two endpoints and clicking Add Center.",
+      "Next, I'll create an offset from that anchor to the left and, just as before, add a center point between the central anchor and the new one.",
+      "Now I'll create the mirrored anchors on the other side. First, select the anchor you want to mirror, then select the axis you want to mirror it across. Right-click and select Add Mirror. See how the lines adjust automatically?",
+      "Now I'll add a couple of horizontal anchors. To align the components, select the anchor you want to align them to, then select the component. Right-click and select Fix to Anchor. I'll do the same for each component along both axes, and that's it!"
+    ]
+  },
+  {
+    "label": "DOOR, REAR VIEW SECTION",
+    "content": [
+      "Now let's switch to the rear view. To see through the front view using X-ray, I'll hold down Shift and click the front view. Then, I'll right-click and select Flip in X.",
+      "I can now see the component previews. I'll enable DrawCutOuts in the Inspector to see the hole positions. Using them as a reference, I'll add an anchor and place a wire duct along it."
+    ]
+  },
+  {
+    "label": "DIMENSIONS SECTION",
+    "content": [
+      "Now I'll add some dimensions. I'll select the two anchors I want to dimension, right-click, and select Add Annotation.",
+      "By holding down Shift while clicking and dragging the dimension, I can adjust the length and direction of its extension lines."
+    ]
+  },
+  {
+    "label": "FINISH SECTION",
+    "content": [
+      "That's all for now. By combining the different anchor constraints, you can achieve some pretty interesting results, so be sure to read the help documentation to discover what else Panel Master can do."
+    ]
+  }
+]

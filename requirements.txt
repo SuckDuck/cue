@@ -1,0 +1,14 @@
+cffi==2.1.1
+evdev==2.0.0
+flatbuffers==25.12.19
+numpy==2.5.4
+onnxruntime==1.31.0
+packaging==26.3
+pathvalidate==3.3.1
+piper-tts==1.8.0
+protobuf==7.36.2
+pycparser==3.11
+pynput==1.8.2
+python-xlib==0.33
+six==1.17.0
+sounddevice==0.5.6
