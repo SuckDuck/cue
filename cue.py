@@ -3,11 +3,15 @@ from talker import Talker
 import sys, json, time, textwrap, shutil
 import subprocess
 from pathlib import Path
+import re
 
 NEXT_SHORTCUT = ["d"]
 
 MODEL = Path("en_US-lessac-medium.onnx")
 CONFIG = Path("en_US-lessac-medium.onnx.json")
+
+YELLOW = "\033[93m"
+RESET = "\033[0m"
 
 def main() -> int:
     if sys.stdin.isatty():
@@ -24,7 +28,6 @@ def main() -> int:
 
     keyboard = KeyboardInput()
     talker = Talker()
-    talker = Talker()
 
     section_index = 0
     paragraph_index = 0
@@ -35,9 +38,8 @@ def main() -> int:
             section = script[section_index]
 
             print("\033[2J\033[H", end="")
-            print("\033[2J\033[H", end="")
             print(f"Press [{'+'.join(NEXT_SHORTCUT).upper()}] to play the next line")
-            print("=" * (shutil.get_terminal_size().columns) + "\n")
+            print("=" * shutil.get_terminal_size().columns + "\n")
 
             label = section.get("label")
             if label:
@@ -58,12 +60,19 @@ def main() -> int:
 
                 print("\n")
 
+            if paragraph_index == len(section["content"]) - 1:
+                if section_index + 1 < len(script):
+                    next_text = script[section_index + 1]["content"][0]
+                    print(f"{YELLOW}NEXT: {next_text}{RESET}")
+
             if keyboard.is_pressed(*NEXT_SHORTCUT):
                 if talker.is_speaking():
                     pass
-                    
+
                 elif not done_speaking:
-                    talker.speak(section["content"][paragraph_index])
+                    text = section["content"][paragraph_index]
+                    text = re.sub(r"\(.*?\)", "", text, flags=re.DOTALL)
+                    talker.speak(text)
                     done_speaking = True
 
                 else:
@@ -76,9 +85,9 @@ def main() -> int:
                         break
 
                     done_speaking = False
-                    talker.speak(
-                        script[section_index]["content"][paragraph_index]
-                    )
+                    text = script[section_index]["content"][paragraph_index]
+                    text = re.sub(r"\(.*?\)", "", text, flags=re.DOTALL)
+                    talker.speak(text)
                     done_speaking = True
 
             keyboard.update()
